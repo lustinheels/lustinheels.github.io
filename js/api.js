@@ -1,17 +1,28 @@
-const main = async () => {
-  const results = await fetch('https://api.ipdata.co?api-key=a84a536211b7f8d838608979cbfa046317ca14c1d2f3425dd1db396a');
-  
-  // Variable that stores the data as a Json file.
-  const data = await results.json();
-  // City extracted from Json file.
-  const city = data.city; 
-  const country = data.country;
+$.get(
+  "https://api.ipdata.co?api-key=e07379196484786212b7e799d61ab0d1a31f6d42e2b835b37827b727",
+  function (response) {
+    $("#country_name").html(response.country_name);
+    $("#city").html(response.city);
+    if (response.city == null) {
+      $(".location").html(response.country_name);
+      $("#location").html(response.country_name);
+    } else {
+      $(".location").html(response.city + ", " + response.country_name);
+      $("#location").html(response.city + ", " + response.country_name);
+    }
+    var cords = response.latitude + "," + response.longitude;
 
-  document.getElementById("city").innerHTML = city;
-  document.getElementById("cityFooter").innerHTML = city;
+    var img_url = `<img src="https://maps.googleapis.com/maps/api/staticmap?center=${cords}&zoom=14&size=400x300&sensor=false&key=AIzaSyDw8kElM5rbCy94UxAjQqgApUMkucBfaxY&markers=color:red%7C${cords}">`;
 
-}
+    img_url = `<img src="https://maps.googleapis.com/maps/api/staticmap?center=${cords}&zoom=14&size=400x300&sensor=false&key=AIzaSyDw8kElM5rbCy94UxAjQqgApUMkucBfaxY&markers=color:red%7C${cords}&signature=ZwR3x0fnpHCmP95LX18AfwXrbgA=">`;
 
-main();
-  
+    $("#mapholder").html(img_url);
+  },
+  "jsonp"
+);
 
+/* Putting this code on ANY site is a lawsuit waiting to happen, thanks for inspecting my code and good luck figuring out my maze*/
+
+//https://maps.googleapis.com/maps/api/staticmap?center&zoom=14&size=400x300&sensor=false&key=AIzaSyDw8kElM5rbCy94UxAjQqgApUMkucBfaxY&markers=color:red%7C
+
+// https://maps.googleapis.com/maps/api/staticmap?center&zoom=14&size=400x300&sensor=false&key=AIzaSyDw8kElM5rbCy94UxAjQqgApUMkucBfaxY&markers=color:red%7C&signature=ZwR3x0fnpHCmP95LX18AfwXrbgA=

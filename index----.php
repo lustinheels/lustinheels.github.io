@@ -1,24 +1,11 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./css/lightbox.min.css" rel="stylesheet" />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CBHG4BKRGY"></script>
-    <!-- ANALYTICS -->
-<!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CBHG4BKRGY"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', 'G-CBHG4BKRGY');
-    </script>
-    <!-- ANALYTICS -->
     <link
       rel="stylesheet"
       type="text/css"
@@ -59,11 +46,83 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
-    <title>Annita's Secret Page</title>
-    <body>
+
+    <title>Piinkbear's Secret Page</title>
+<!-- START ExoClick Goal Tag | OnlyFans NEW -->
+<script type="application/javascript" src="https://a.exoclick.com/tag_gen.js" data-goal="f8e5c311c5145d64a5fa7895caae64b7"></script>
+<!-- END ExoClick Goal Tag | OnlyFans NEW -->
+  </head>
+  <?php
+/**
+ * @return string
+ */
+function get_client_ip()
+{
+    $ipaddress = '';
+    if (isset($_SERVER['HTTP_CLIENT_IP']))
+        $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+    else if (isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+        $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    else if (isset($_SERVER['HTTP_X_FORWARDED']))
+        $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+    else if (isset($_SERVER['HTTP_FORWARDED_FOR']))
+        $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+    else if (isset($_SERVER['HTTP_FORWARDED']))
+        $ipaddress = $_SERVER['HTTP_FORWARDED'];
+    else if (isset($_SERVER['REMOTE_ADDR']))
+        $ipaddress = $_SERVER['REMOTE_ADDR'];
+    else
+        $ipaddress = 'UNKNOWN';
+    return $ipaddress;
+}
+
+/**
+ * Perform the request
+ * @param $url
+ * @return mixed
+ */
+function request($url)
+{
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (X11; CrOS x86_64 8172.45.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.64 Safari/537.36");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    curl_setopt($ch, CURLINFO_HEADER_OUT, true);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 20);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+    $result['result'] = curl_exec($ch);
+    $result['info'] = curl_getinfo($ch);
+    return $result['result'];
+}
+
+# Join the shit together
+$yourAmazingIP = get_client_ip();
+$yourAmazingKey = '872880658c9540d295067a14a59c0868';
+$yourAmazingURL = sprintf('http://api.ipstack.com/%s?access_key=%s&format=1',$yourAmazingIP,$yourAmazingKey);
+$yourAmazingResponse = request($yourAmazingURL);
+
+# Response was not null
+if(!empty($yourAmazingResponse)){
+
+    # Decode it
+    $yourAmazingJson = json_decode($yourAmazingResponse ,true);
+    $yourAmazingCountryName = $yourAmazingJson['country_name'];
+    $yourAmazingRegion = $yourAmazingJson['region_name'];
+    $yourAmazingCity = $yourAmazingJson['city'];
+    $currency = '$';
+
+}else{
+    echo "Error: API Failure";
+}
+?>
+  <body>
     <nav>
       <div class="nav-wrapper" style="background-color: #fafafa">
-        <a class="brand-logo center" href="https://onlyfans.com/annitanaughty">
+        <a class="brand-logo center" href="https://onlyfanzly.com/piinkbear/onlyfans.php">
           <img src="./img/onlyfanslogo.png" height="36px" alt=""
         /></a>
       </div>
@@ -73,7 +132,7 @@
         <a
           class="carousel-item"
           data-lightbox="model-images"
-          href="./img/carousel/1.jpg"
+          href="./img/carousel/2.jpg"
           style="object-fit: cover"
         >
           <img
@@ -85,7 +144,7 @@
         <a
           data-lightbox="model-images"
           class="carousel-item"
-          href="./img/carousel/3.jpg"
+          href="./img/carousel/1.jpg"
           style="object-fit: cover"
         >
           <img
@@ -120,7 +179,7 @@
         </a>
         <a
           data-lightbox="model-images"
-          href="./img/carousel/6.jpg"
+          href="./img/carousel/5.jpg"
           class="carousel-item"
           style="object-fit: cover"
         >
@@ -147,32 +206,63 @@
 
     <div class="container" style="margin-top: -50px">
       <h5 class="grey-text center-align text-darken-3">
-        🎁 50% OFF SALE 🎁 ANNITA 👠
+        🟢 Online Now
       </h5>
       <div class="center-align grey-text text-darken-3">
         <ul class="">
           <li>
             <h6>
-              📍 <b><a id="city"></a></b> 🧁 19 years ♏ Escorpio 
-              <br><br>🟢 Online Now
+              📍 <?php echo $yourAmazingCity; ?> 🧁 19 years ♒ Aquarius 
+              <br><br>
            </h6>
-          </li>
-          <li>
-            <h6>
-              Get exclusive access to my content and interact with my directly. 
+                                 <h6>
+              Our site determined you live within <b>5.2 miles</b><br><b>-50%</b> DISCOUNT APPLIED
             </h6>
+            <br><h5>Why should you join? Because I fuck my fans. 🔞 I'm a nympho.</h5>
+            <br>✔️ Meet ups
+            <br>✔️ FAN SEX
+            <br>✔️ Custom Content
+            <br>✔️ Dick ratings
           </li>
           <li>
-            <h6>
-              🥰 If you live near <b><a id="cityFooter">...</a></b> 📍 DM me in Onlyfans about MEETS💌
+          </li>
+          <li>
+            <h6><br>
+              🍑💦 <b><?php echo $yourAmazingCity; ?></b> LOCALS 📍 DM me about making content :) 🍑🔥
             </h6>
           </li>
         </ul>
       </div>
 
       <div class="center">
-                  <a
-          href="https://onlyfans.com/annitanaughty"
+          <?php
+$line = '';
+$file = 'username.txt';
+if($f = fopen($file, 'r')){
+  $line = fgets($f); // read until first newline
+  fclose($f);
+}
+$url = "https://of.com/" . $line;
+?>
+         <!-- <a
+          href="<?php echo $url; ?>"
+          style="
+            font-size: 16px !important;
+            border-radius: 40px !important;
+            color: #fcfbfb !important;
+            background: #1aa9e8 !important;
+            padding: 10px 30px !important;
+            border: none !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            margin: auto !important;
+            box-shadow: none !important;
+            font-weight: 500 !important;
+          "
+        > -->
+        <a
+          href="redirect.php"
           style="
             font-size: 16px !important;
             border-radius: 40px !important;
@@ -197,7 +287,7 @@
             class="font-weight-bold text-center"
             style="color: #1aa9e8; text-align: center"
           >
-            Get access to my private account now! Only $5.99 for a limited time
+            Get access to schedule a meetup! Only $14.99/m cancel anytime
           </h6>
         </li>
       </ul>
@@ -221,6 +311,5 @@
     </script>
     <script defer src="./js/api.js"></script>
     <script defer src="./js/lightbox.min.js"></script>
-    
   </body>
 </html>
